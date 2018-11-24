@@ -52,5 +52,31 @@ namespace GradeBook.GradeBooks
 
             return grade;
         }
+
+        public override void CalculateStatistics()
+        {
+            int requiredStudentMinimum = 5;
+
+            if (Students.Count < requiredStudentMinimum)
+            {
+                Console.WriteLine($"Ranked grading requires at least {requiredStudentMinimum} students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+
+            base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            int requiredStudentMinimum = 5;
+
+            if (Students.Count < requiredStudentMinimum)
+            {
+                Console.WriteLine($"Ranked grading requires at least {requiredStudentMinimum} students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+
+            base.CalculateStudentStatistics(name);
+        }
     }
 }
